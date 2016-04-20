@@ -1,37 +1,32 @@
 % -*- erlang -*-
 
-%% @doc The module used for expanding metrics.
-{mapping, "metric_handler", "dqe.metric_backend",
- [{default, dalmatiner_connection},
-  {datatype, atom}]}.
-
 %% @doc Mongodb server. Used only if metric_handler is set to mongo_connection.
-{mapping, "mongo.server", "dqe.mongo_server",
+{mapping, "idx.mongodb.server", "dqe_idx_mongodb.server",
  [{default, {"127.0.0.1", 27017}},
   {datatype, ip}]}.
 
 %% @doc Mongodb database. Used only if metric_handler is set to mongo_connection.
-{mapping, "mongo.database", "dqe.mongo_database",
+{mapping, "idx.mongodb.database", "dqe_idx_mongodb.database",
  [{datatype, string}]}.
 
 %% @doc Mongodb database user. Used only if metric_handler is set to mongo_connection.
-{mapping, "mongo.login", "dqe.mongo_login",
+{mapping, "idx.mongodb.login", "dqe_idx_mongodb.login",
  [{datatype, string}]}.
 
 %% @doc Mongodb database password. Used only if metric_handler is set to mongo_connection.
-{mapping, "mongo.password", "dqe.mongo_password",
+{mapping, "idx.mongodb.password", "dqe_idx_mongodb.password",
  [{datatype, string}]}.
 
 %% @doc Set to true if you are connecting to slave node. Used only if metric_handler is set to mongo_connection.
-{mapping, "mongo.slave_ok", "dqe.mongo_slave_ok",
+{mapping, "idx.mongodb.slave_ok", "dqe_idx_mongodb.slave_ok",
  [{datatype, flag}]}.
 
 %% @doc Initial number of conneciton pool workers
-{mapping, "mongo.pool.size", "dqe.mongo_pool_size",
+{mapping, "idx.mongodb.pool.size", "dqe_idx_mongodb.pool_size",
  [{default, 8},
   {datatype, integer}]}.
 
 %% @doc Maximum number of conneciton pool workers
-{mapping, "mongo.pool.max", "dqe.mongo_pool_max",
+{mapping, "idx.mongodb.pool.max", "dqe_idx_mongodb.pool_max",
  [{default, 4},
   {datatype, integer}]}.
