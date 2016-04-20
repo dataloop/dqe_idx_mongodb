@@ -1,32 +1,33 @@
 % -*- erlang -*-
 
-%% @doc Mongodb server. Used only if metric_handler is set to mongo_connection.
+%% @doc Mongodb server address
 {mapping, "idx.mongodb.server", "dqe_idx_mongodb.server",
  [{default, {"127.0.0.1", 27017}},
   {datatype, ip}]}.
 
-%% @doc Mongodb database. Used only if metric_handler is set to mongo_connection.
+%% @doc Mongodb database
 {mapping, "idx.mongodb.database", "dqe_idx_mongodb.database",
- [{datatype, string}]}.
+ [{default, "ddb"},
+  {datatype, string}]}.
 
-%% @doc Mongodb database user. Used only if metric_handler is set to mongo_connection.
+%% @doc Mongodb database user
 {mapping, "idx.mongodb.login", "dqe_idx_mongodb.login",
  [{datatype, string}]}.
 
-%% @doc Mongodb database password. Used only if metric_handler is set to mongo_connection.
+%% @doc Mongodb database password
 {mapping, "idx.mongodb.password", "dqe_idx_mongodb.password",
  [{datatype, string}]}.
 
-%% @doc Set to true if you are connecting to slave node. Used only if metric_handler is set to mongo_connection.
+%% @doc Set to true if you are connecting to slave node
 {mapping, "idx.mongodb.slave_ok", "dqe_idx_mongodb.slave_ok",
  [{datatype, flag}]}.
 
 %% @doc Initial number of conneciton pool workers
-{mapping, "idx.mongodb.pool.size", "dqe_idx_mongodb.pool_size",
- [{default, 8},
+{mapping, "idx.mongodb.size", "dqe_idx_mongodb.pool_size",
+ [{default, 20},
   {datatype, integer}]}.
 
 %% @doc Maximum number of conneciton pool workers
-{mapping, "idx.mongodb.pool.max", "dqe_idx_mongodb.pool_max",
- [{default, 4},
+{mapping, "idx.mongodb.max", "dqe_idx_mongodb.pool_max",
+ [{default, 50},
   {datatype, integer}]}.
