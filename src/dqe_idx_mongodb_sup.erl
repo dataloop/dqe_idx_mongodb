@@ -35,7 +35,7 @@ init([]) ->
 %%====================================================================
 
 mongo_spec () ->
-    Name = mongo_connection_pool,
+    Name = dqe_idx_mongodb_pool,
     {ok, PoolSize} = application:get_env(dqe_idx_mongodb, pool_size),
     {ok, PoolMax} = application:get_env(dqe_idx_mongodb, pool_max),
     PoolArgs = [{name, {local, Name}},

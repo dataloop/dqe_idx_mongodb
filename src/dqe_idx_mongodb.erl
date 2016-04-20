@@ -58,7 +58,7 @@ init() ->
 %%          name: {$regex: /^gauges\.production\.docker\.haproxy\.5555\./}
 %%     });
 expand(Bucket, Globs) ->
-    call({expand, Bucket, Globs}).
+    call({list, Bucket, Globs}).
 
 lookup({'in', B, M}) ->
     {ok, [{B, dproto:metric_from_list(M)}]};
@@ -95,10 +95,7 @@ init(ConnectionArgs) ->
 handle_call({list, Bkt, Globs}, _From, #state{connection = C} = State) ->
     Ps1 = lists:map(fun glob_prefix/1, Globs),
     Ps2 = compress_prefixes(Ps1),
-    Ms1 = [begin
-               {ok, Ms} = list_metrics(C, P),
-               Ms
-           end || P <- Ps2],
+    Ms1 = [list_metrics(C, P) || P <- Ps2],
     Ms2 = lists:usort(lists:flatten(Ms1)),
     {reply, {ok, {Bkt, Ms2}}, State};
 

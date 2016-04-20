@@ -3,8 +3,8 @@
               {vsn, "0.1.0"},
               {registered, []},
               {applications,[kernel,stdlib,dproto,dqe_idx,poolboy,pbkdf2,mongodb]},
+              {mod, {dqe_idx_mongodb_app, []}},
               {env,[]},
-              {modules, []},
               {maintainers, ["<Tomasz Szarstuk> szarsti@gmail.com"]},
               {licenses, ["MIT"]},
               {links, []}
